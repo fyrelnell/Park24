@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace Park24
 {
-    public partial class editForm : Form
+    public partial class carEditForm : Form
     {
         OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source = otoparkDB.accdb");
 
@@ -26,7 +26,7 @@ namespace Park24
             set { _aracPlaka = value; }
         }
 
-        public editForm()
+        public carEditForm()
         {
             InitializeComponent();
         }
@@ -66,10 +66,10 @@ namespace Park24
 
                 if (aracReader.Read())
                 {
-                    textBox1.Text = aracReader["arac_Plaka"].ToString();
-                    textBox2.Text = aracReader["arac_Marka"].ToString();
-                    textBox3.Text = aracReader["arac_Model"].ToString();
-                    comboBox1.Text = aracReader["park_No"].ToString();
+                    plateTBox.Text = aracReader["arac_Plaka"].ToString();
+                    brandTBox.Text = aracReader["arac_Marka"].ToString();
+                    modelTBox.Text = aracReader["arac_Model"].ToString();
+                    parknoCBox.Text = aracReader["park_No"].ToString();
                 }
 
                 kayitYeri = aracReader["park_No"].ToString();
@@ -85,9 +85,9 @@ namespace Park24
 
                 if (musteriReader.Read())
                 {
-                    textBox6.Text = musteriReader["musteri_Ad"].ToString();
-                    textBox5.Text = musteriReader["musteri_Soyad"].ToString();
-                    textBox4.Text = musteriReader["musteri_Tel"].ToString();
+                    nameTBox.Text = musteriReader["musteri_Ad"].ToString();
+                    surnTBox.Text = musteriReader["musteri_Soyad"].ToString();
+                    phoneTBox.Text = musteriReader["musteri_Tel"].ToString();
                 }
 
                
@@ -112,14 +112,14 @@ namespace Park24
 
                 OleDbDataReader okuyucu = kom.ExecuteReader();
 
-                comboBox1.Items.Clear();
+                parknoCBox.Items.Clear();
                 
-                comboBox1.Items.Add(kayitYeri);
-                comboBox1.SelectedItem = kayitYeri;
+                parknoCBox.Items.Add(kayitYeri);
+                parknoCBox.SelectedItem = kayitYeri;
 
                 while (okuyucu.Read())
                 {
-                    comboBox1.Items.Add(okuyucu["Park_Yeri"].ToString());
+                    parknoCBox.Items.Add(okuyucu["Park_Yeri"].ToString());
                 }
                 
 
@@ -169,7 +169,7 @@ namespace Park24
         {
             string plakaPattern = @"^(0[1-9]|[1-7][0-9]|80|81) [A-PR-VY-ZÇĞİÖŞÜ]{1,3} (?!0000)\d{1,4}$";
 
-            string girilenPlaka = textBox1.Text.ToUpper();
+            string girilenPlaka = plateTBox.Text.ToUpper();
             bool plakaUygun = PlakaKontrol(plakaPattern, girilenPlaka);
 
             if (!plakaUygun)
@@ -201,14 +201,14 @@ namespace Park24
                 string eskiParkYeri = kayitYeri;
 
                 // Yeni park yeri bilgisini al
-                string yeniParkYeri = comboBox1.Text;
+                string yeniParkYeri = parknoCBox.Text;
 
                 // Araç bilgilerini güncelle
                 connection.Open();
                 OleDbCommand aracGuncelleKomut = new OleDbCommand("UPDATE Musteri SET arac_Plaka=?, arac_Marka=?, arac_Model=?, park_No=? WHERE park_No=?", connection);
-                aracGuncelleKomut.Parameters.AddWithValue("@arac_Plaka", textBox1.Text.ToUpper());
-                aracGuncelleKomut.Parameters.AddWithValue("@arac_Marka", English(textBox2.Text.ToUpper()));
-                aracGuncelleKomut.Parameters.AddWithValue("@arac_Model", English(textBox3.Text.ToUpper()));
+                aracGuncelleKomut.Parameters.AddWithValue("@arac_Plaka", plateTBox.Text.ToUpper());
+                aracGuncelleKomut.Parameters.AddWithValue("@arac_Marka", English(brandTBox.Text.ToUpper()));
+                aracGuncelleKomut.Parameters.AddWithValue("@arac_Model", English(modelTBox.Text.ToUpper()));
                 aracGuncelleKomut.Parameters.AddWithValue("@park_No", yeniParkYeri); // Yeni park yerini burada kullan
                 aracGuncelleKomut.Parameters.AddWithValue("@eskiParkYeri", eskiParkYeri); // Eski park yerini burada kullan
                 aracGuncelleKomut.ExecuteNonQuery();
@@ -225,7 +225,7 @@ namespace Park24
 
                 MessageBox.Show("Güncelleme Başarılı");
 
-                comboBox1.Items.Clear();
+                parknoCBox.Items.Clear();
 
                 this.Close();
                 

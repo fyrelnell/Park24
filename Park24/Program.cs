@@ -16,7 +16,7 @@ namespace Park24
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new giris_Form());
+            Application.Run(new loginForm());
         }
     }
 }

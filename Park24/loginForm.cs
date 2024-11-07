@@ -27,7 +27,7 @@ namespace Park24
          
          */
 
-    public partial class giris_Form : Form
+    public partial class loginForm : Form
     {
         private bool isDragging;
         private Point lastCursorPosition;
@@ -43,23 +43,23 @@ namespace Park24
 
         OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source = otoparkDB.accdb");
 
-        public giris_Form()
+        public loginForm()
         {
             
 
             InitializeComponent();
 
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = Color.Goldenrod;
-            button1.FlatAppearance.MouseOverBackColor = Color.Goldenrod;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.FlatAppearance.BorderSize = 0;  
+            headerLineButton.FlatStyle = FlatStyle.Flat;
+            headerLineButton.FlatAppearance.BorderSize = 0;
+            headerLineButton.FlatAppearance.MouseDownBackColor = Color.Goldenrod;
+            headerLineButton.FlatAppearance.MouseOverBackColor = Color.Goldenrod;
+            Park24_ImageButton.FlatStyle = FlatStyle.Flat;
+            Park24_ImageButton.FlatAppearance.BorderSize = 0;  
 
             
-            button1.MouseDown += Button1_MouseDown;
-            button1.MouseMove += Button1_MouseMove;
-            button1.MouseUp += Button1_MouseUp;
+            headerLineButton.MouseDown += Button1_MouseDown;
+            headerLineButton.MouseMove += Button1_MouseMove;
+            headerLineButton.MouseUp += Button1_MouseUp;
 
 
             timer = new Timer();
@@ -113,7 +113,7 @@ namespace Park24
         private void UpdateDateTime()
         {
             // Şu anki tarih ve saati al ve Label'a ata
-            girismetin_Tarih.Text = DateTime.Now.ToString("dd/MM/yyyy\n dd MMMM dddd \nHHH:mm:ss");
+            dateLabel1.Text = DateTime.Now.ToString("dd/MM/yyyy\n dd MMMM dddd \nHHH:mm:ss");
         }
 
         // ----------------------------------------------------------------
@@ -122,14 +122,14 @@ namespace Park24
 
         private void giris_Form_Load(object sender, EventArgs e)
         {
-            textBox1.Location = new Point((this.ClientSize.Width - textBox1.Width) / 2, (this.ClientSize.Height - textBox1.Height) / 2 + 90);
-            textBox2.Location = new Point((this.ClientSize.Width - textBox2.Width) / 2, (this.ClientSize.Height - textBox2.Height) / 2 + 128);
-            Point currentLocation = button4.Location;
-            Point currentLocation2 = button3.Location;
-            button4.Location = new Point((this.ClientSize.Width - button4.Width)/ 2, currentLocation.Y + 100);
-            button3.Location = new Point((this.ClientSize.Width - button3.Width) / 2, currentLocation2.Y + 10);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.FlatAppearance.BorderSize = 0;
+            usernameTBox.Location = new Point((this.ClientSize.Width - usernameTBox.Width) / 2, (this.ClientSize.Height - usernameTBox.Height) / 2 + 90);
+            passwordTBox.Location = new Point((this.ClientSize.Width - passwordTBox.Width) / 2, (this.ClientSize.Height - passwordTBox.Height) / 2 + 128);
+            Point currentLocation = loginButton.Location;
+            Point currentLocation2 = Park24_ImageButton.Location;
+            loginButton.Location = new Point((this.ClientSize.Width - loginButton.Width)/ 2, currentLocation.Y + 100);
+            Park24_ImageButton.Location = new Point((this.ClientSize.Width - Park24_ImageButton.Width) / 2, currentLocation2.Y + 10);
+            headerLineButton.FlatStyle = FlatStyle.Flat;
+            headerLineButton.FlatAppearance.BorderSize = 0;
 
             
             // Giriş ekranında tarihi gösterme
@@ -137,7 +137,7 @@ namespace Park24
 
 
             // Form yüklenirken bir kere tarih ve saati güncelle
-            girismetin_Tarih.Text = DateTime.Now.ToString("dd/MM/yyyy\n dd MMMM dddd \nHHH:mm:ss");
+            dateLabel1.Text = DateTime.Now.ToString("dd/MM/yyyy\n dd MMMM dddd \nHHH:mm:ss");
 
 
         }
@@ -150,7 +150,7 @@ namespace Park24
         public void button4_Click(object sender, EventArgs e)
         {
 
-            if (textBox1.Text == "" || textBox2.Text == "")
+            if (usernameTBox.Text == "" || passwordTBox.Text == "")
             {
                 MessageBox.Show("Kullanıcı Adı veya Şifre Kısmı boş olamaz.");
             }
@@ -158,17 +158,17 @@ namespace Park24
             else
             {
                 connection.Open();
-                OleDbCommand kullanicilar = new OleDbCommand("select * from Kullanici where kullanici_Ad='" + textBox1.Text.ToString() + "'", connection);
+                OleDbCommand kullanicilar = new OleDbCommand("select * from Kullanici where kullanici_Ad='" + usernameTBox.Text.ToString() + "'", connection);
                 OleDbDataReader okuyucu = kullanicilar.ExecuteReader();
                 if (okuyucu.Read() == true)
                 {
-                    if (textBox1.Text.ToString() == okuyucu["kullanici_Ad"].ToString() && textBox2.Text.ToString() == okuyucu["kullanici_Sifre"].ToString())
+                    if (usernameTBox.Text.ToString() == okuyucu["kullanici_Ad"].ToString() && passwordTBox.Text.ToString() == okuyucu["kullanici_Sifre"].ToString())
                     {
-                        giris_Form gform = new giris_Form();
+                        loginForm gform = new loginForm();
 
                         KullaniciID = Convert.ToInt32(okuyucu["kullanici_ID"]);
 
-                        Form22 yeniForm = new Form22
+                        homePageForm yeniForm = new homePageForm
                         {
                             StartPosition = FormStartPosition.CenterScreen,
                             GelenKullaniciID = KullaniciID
@@ -182,15 +182,15 @@ namespace Park24
                     else
                     {
                         MessageBox.Show("Kullanıcı Adı veya Şifre yanlış. Kontrol Edin!");
-                        textBox2.Clear();
+                        passwordTBox.Clear();
                     }
 
                 }
                 else
                 {
                     MessageBox.Show("Böyle bir kullanıcı yok.");
-                    textBox1.Clear();
-                    textBox2.Clear();
+                    usernameTBox.Clear();
+                    passwordTBox.Clear();
                 }
                 connection.Close();
             }

@@ -28,7 +28,7 @@ namespace Park24
     {
         OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source = otoparkDB.accdb");
 
-        Form22 girisFormNesnesi = new Form22();
+        homePageForm girisFormNesnesi = new homePageForm();
 
         public int KullaniciIDs;
 
@@ -65,7 +65,7 @@ namespace Park24
             OleDbDataReader okuyucu = kom.ExecuteReader();
             while (okuyucu.Read())
             {
-                comboBox1.Items.Add(okuyucu["Park_Yeri"].ToString());
+                parknoCBox.Items.Add(okuyucu["Park_Yeri"].ToString());
             }
             connection.Close();
             
@@ -85,9 +85,9 @@ namespace Park24
             connection.Close();
 
             // TextBox'a otomatik tamamlama özelliğini ekle
-            textBox2.AutoCompleteMode = AutoCompleteMode.Append;
-            textBox2.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            textBox2.AutoCompleteCustomSource = veriKaynagi;
+            brandTBox.AutoCompleteMode = AutoCompleteMode.Append;
+            brandTBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            brandTBox.AutoCompleteCustomSource = veriKaynagi;
         }
 
 
@@ -100,7 +100,7 @@ namespace Park24
 
 
 
-            string girilenPlaka = textBox1.Text.ToUpper();
+            string girilenPlaka = plateTBox.Text.ToUpper();
 
             bool plakaUygun = PlakaKontrol(plakaPattern, girilenPlaka);
 
@@ -142,7 +142,7 @@ namespace Park24
             string saat = DateTime.Now.ToShortTimeString();
             string tarih = DateTime.Now.ToShortDateString();
 
-            CultureInfo.CurrentCulture.TextInfo.ToTitleCase(textBox1.Text);
+            CultureInfo.CurrentCulture.TextInfo.ToTitleCase(plateTBox.Text);
 
             if (!HatalariKontrolEt())
             {
@@ -153,18 +153,18 @@ namespace Park24
             try
             {
                 connection.Open();
-                OleDbCommand eklekom = new OleDbCommand("insert into Musteri (park_No, musteri_Ad,musteri_Soyad,musteri_Tel,arac_Plaka,arac_Marka,arac_Model,giris_Tarihi,giris_Saati,giris_Gorevlisi) values('" + comboBox1.Text + "','" + Buyuk(textBox6.Text) + "','" + Buyuk(textBox5.Text) + "','" + textBox4.Text + "','" + textBox1.Text.ToUpper() + "','" + English(textBox2.Text.ToUpper()) + "','" + English(textBox3.Text.ToUpper()) + "','" + tarih.ToString() + "','" + saat.ToString() + "','" + KullaniciIDs + "')", connection);
+                OleDbCommand eklekom = new OleDbCommand("insert into Musteri (park_No, musteri_Ad,musteri_Soyad,musteri_Tel,arac_Plaka,arac_Marka,arac_Model,giris_Tarihi,giris_Saati,giris_Gorevlisi) values('" + parknoCBox.Text + "','" + Buyuk(nameTBox.Text) + "','" + Buyuk(surnTBox.Text) + "','" + phoneTBox.Text + "','" + plateTBox.Text.ToUpper() + "','" + English(brandTBox.Text.ToUpper()) + "','" + English(modelTBox.Text.ToUpper()) + "','" + tarih.ToString() + "','" + saat.ToString() + "','" + KullaniciIDs + "')", connection);
                 eklekom.ExecuteNonQuery();
                 connection.Close();
 
                 connection.Open();
-                OleDbCommand kom2 = new OleDbCommand("update parkYeri set Durum = true where park_Yeri like'" + comboBox1.Text.ToString() + "'", connection);
+                OleDbCommand kom2 = new OleDbCommand("update parkYeri set Durum = true where park_Yeri like'" + parknoCBox.Text.ToString() + "'", connection);
                 kom2.ExecuteNonQuery();
                 connection.Close();
 
 
                 MessageBox.Show("Başarıyla Kaydedildi");
-                comboBox1.Items.Clear();
+                parknoCBox.Items.Clear();
 
                 this.Close();
 
@@ -243,13 +243,13 @@ namespace Park24
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = string.Empty;
-            textBox2.Text = string.Empty;
-            textBox3.Text = string.Empty;
-            textBox4.Text = string.Empty;
-            textBox5.Text = string.Empty;
-            textBox6.Text = string.Empty;
-            comboBox1.SelectedIndex = -1;
+            plateTBox.Text = string.Empty;
+            brandTBox.Text = string.Empty;
+            modelTBox.Text = string.Empty;
+            phoneTBox.Text = string.Empty;
+            surnTBox.Text = string.Empty;
+            nameTBox.Text = string.Empty;
+            parknoCBox.SelectedIndex = -1;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Park24
         private DateTime girisTarihi;
         private DateTime girisSaati;
         int selectedRowIndex;
-        private statusForm form1;
+        private parkStatusForm form1;
 
         private string _aracPlaka;
 
@@ -37,7 +37,7 @@ namespace Park24
             set { _aracPlaka = value; }
         }
 
-        public carExitForm(DateTime girisTarihi, DateTime girisSaati, int selectedRowIndex, statusForm form1)
+        public carExitForm(DateTime girisTarihi, DateTime girisSaati, int selectedRowIndex, parkStatusForm form1)
         {
             InitializeComponent();
             this.girisTarihi = girisTarihi;
@@ -64,7 +64,7 @@ namespace Park24
         private void carExitForm_Load(object sender, EventArgs e)
         {
             VeritabanindanBilgileriGetir(_aracPlaka);
-            GorevliBilgileriniGetir(label13.Text);
+            GorevliBilgileriniGetir(parknoLabel2.Text);
 
         }
 
@@ -73,8 +73,8 @@ namespace Park24
             TimeSpan girisSaatit = girisSaati.TimeOfDay;
 
 
-            girisT.Text = girisTarihi.ToString("dd.MM.yyyy");
-            girisS.Text = girisSaatit.ToString("hh\\:mm");
+            entryDateLabel2.Text = girisTarihi.ToString("dd.MM.yyyy");
+            entryTimeLabel2.Text = girisSaatit.ToString("hh\\:mm");
 
 
 
@@ -112,9 +112,9 @@ namespace Park24
             }
 
 
-            sure.Text = toplamSure;
+            timeLabel2.Text = toplamSure;
 
-            ucret.Text = (HesaplaUcret(Convert.ToDateTime(girisTarihi), Convert.ToDateTime(girisSaati)).ToString() + " ₺");
+            feeLabel2.Text = (HesaplaUcret(Convert.ToDateTime(girisTarihi), Convert.ToDateTime(girisSaati)).ToString() + " ₺");
 
             try
             {
@@ -128,10 +128,10 @@ namespace Park24
 
                 if (aracReader.Read())
                 {
-                    textBox1.Text = aracReader["arac_Plaka"].ToString();
-                    textBox2.Text = aracReader["arac_Marka"].ToString();
-                    textBox3.Text = aracReader["arac_Model"].ToString();
-                    label13.Text = aracReader["park_No"].ToString();
+                    plateTBox.Text = aracReader["arac_Plaka"].ToString();
+                    brandTBox.Text = aracReader["arac_Marka"].ToString();
+                    modelTBox.Text = aracReader["arac_Model"].ToString();
+                    parknoLabel2.Text = aracReader["park_No"].ToString();
                 }
 
                 connection.Close();
@@ -145,9 +145,9 @@ namespace Park24
 
                 if (musteriReader.Read())
                 {
-                    textBox6.Text = musteriReader["musteri_Ad"].ToString();
-                    textBox5.Text = musteriReader["musteri_Soyad"].ToString();
-                    textBox4.Text = musteriReader["musteri_Tel"].ToString();
+                    nameTBox.Text = musteriReader["musteri_Ad"].ToString();
+                    surnTBox.Text = musteriReader["musteri_Soyad"].ToString();
+                    phoneTBox.Text = musteriReader["musteri_Tel"].ToString();
                 }
 
 
@@ -193,7 +193,7 @@ namespace Park24
                         string gorevliSoyad = gorevliReader["gorevli_Soyad"].ToString();
 
                         
-                        kayitG.Text = $"{gorevliAd} {gorevliSoyad}";
+                        registrarLabel2.Text = $"{gorevliAd} {gorevliSoyad}";
                     }
 
                     gorevliReader.Close();

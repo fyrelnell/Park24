@@ -50,79 +50,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addForm.cs">
+    <Compile Include="carAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addForm.Designer.cs">
-      <DependentUpon>addForm.cs</DependentUpon>
+    <Compile Include="carAddForm.Designer.cs">
+      <DependentUpon>carAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="editForm.cs">
+    <Compile Include="carEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="editForm.Designer.cs">
-      <DependentUpon>editForm.cs</DependentUpon>
+    <Compile Include="carEditForm.Designer.cs">
+      <DependentUpon>carEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="carExitForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="carExitForm.Designer.cs">
+      <DependentUpon>carExitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="logListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="logListForm.Designer.cs">
+      <DependentUpon>logListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="girisForm.cs">
+    <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="girisForm.Designer.cs">
-      <DependentUpon>girisForm.cs</DependentUpon>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="homePage.cs">
+    <Compile Include="homePageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="homePage.Designer.cs">
-      <DependentUpon>homePage.cs</DependentUpon>
+    <Compile Include="homePageForm.Designer.cs">
+      <DependentUpon>homePageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="statusForm.cs">
+    <Compile Include="parkStatusForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="statusForm.Designer.cs">
-      <DependentUpon>statusForm.cs</DependentUpon>
+    <Compile Include="parkStatusForm.Designer.cs">
+      <DependentUpon>parkStatusForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="infoForm.cs">
+    <Compile Include="parkInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="infoForm.Designer.cs">
-      <DependentUpon>infoForm.cs</DependentUpon>
+    <Compile Include="parkInfoForm.Designer.cs">
+      <DependentUpon>parkInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="addForm.resx">
-      <DependentUpon>addForm.cs</DependentUpon>
+    <EmbeddedResource Include="carAddForm.resx">
+      <DependentUpon>carAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="editForm.resx">
-      <DependentUpon>editForm.cs</DependentUpon>
+    <EmbeddedResource Include="carEditForm.resx">
+      <DependentUpon>carEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="carExitForm.resx">
+      <DependentUpon>carExitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="logListForm.resx">
+      <DependentUpon>logListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="girisForm.resx">
-      <DependentUpon>girisForm.cs</DependentUpon>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="homePage.resx">
-      <DependentUpon>homePage.cs</DependentUpon>
+    <EmbeddedResource Include="homePageForm.resx">
+      <DependentUpon>homePageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="statusForm.resx">
-      <DependentUpon>statusForm.cs</DependentUpon>
+    <EmbeddedResource Include="parkStatusForm.resx">
+      <DependentUpon>parkStatusForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="infoForm.resx">
-      <DependentUpon>infoForm.cs</DependentUpon>
+    <EmbeddedResource Include="parkInfoForm.resx">
+      <DependentUpon>parkInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

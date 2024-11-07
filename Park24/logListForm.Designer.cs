@@ -2,7 +2,7 @@
 
 namespace Park24
 {
-    partial class recentsForm
+    partial class logListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,7 @@ namespace Park24
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.logListGView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,30 +46,31 @@ namespace Park24
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.headLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logListGView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.logListGView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 68);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1283, 472);
             this.panel1.TabIndex = 3;
             // 
-            // dataGridView1
+            // logListGView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.logListGView.AllowUserToAddRows = false;
+            this.logListGView.AllowUserToDeleteRows = false;
+            this.logListGView.AllowUserToResizeColumns = false;
+            this.logListGView.AllowUserToResizeRows = false;
+            this.logListGView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.logListGView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.logListGView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.logListGView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -78,10 +78,10 @@ namespace Park24
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 50;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.logListGView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.logListGView.ColumnHeadersHeight = 50;
+            this.logListGView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.logListGView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -93,40 +93,30 @@ namespace Park24
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.logListGView.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.logListGView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logListGView.EnableHeadersVisualStyles = false;
+            this.logListGView.Location = new System.Drawing.Point(0, 0);
+            this.logListGView.MultiSelect = false;
+            this.logListGView.Name = "logListGView";
+            this.logListGView.ReadOnly = true;
+            this.logListGView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.logListGView.RowHeadersVisible = false;
+            this.logListGView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Goldenrod;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1283, 472);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(530, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 33);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Eski Kayıtlar";
+            this.logListGView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.logListGView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.logListGView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.logListGView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logListGView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.logListGView.RowTemplate.Height = 40;
+            this.logListGView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.logListGView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.logListGView.Size = new System.Drawing.Size(1283, 472);
+            this.logListGView.TabIndex = 0;
+            this.logListGView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -218,20 +208,30 @@ namespace Park24
             this.Column10.ReadOnly = true;
             this.Column10.Width = 140;
             // 
-            // recentsForm
+            // headLabel
+            // 
+            this.headLabel.AutoSize = true;
+            this.headLabel.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.headLabel.Location = new System.Drawing.Point(530, 21);
+            this.headLabel.Name = "headLabel";
+            this.headLabel.Size = new System.Drawing.Size(180, 33);
+            this.headLabel.TabIndex = 6;
+            this.headLabel.Text = "Eski Kayıtlar";
+            // 
+            // logListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1283, 540);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.headLabel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "recentsForm";
-            this.Text = "recentsForm";
+            this.Name = "logListForm";
+            this.Text = "logListForm";
             this.Load += new System.EventHandler(this.recentsForm_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logListGView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,8 +239,8 @@ namespace Park24
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.DataGridView dataGridView1;
-        private Label label1;
+        public System.Windows.Forms.DataGridView logListGView;
+        private Label headLabel;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;

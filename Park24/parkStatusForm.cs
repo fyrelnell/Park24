@@ -12,17 +12,17 @@ using System.Globalization;
 
 namespace Park24
 {
-    public partial class statusForm : Form
+    public partial class parkStatusForm : Form
     {
 
         
 
         OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source = otoparkDB.accdb");
 
-        public statusForm()
+        public parkStatusForm()
         {
             InitializeComponent();
-            panel2.Visible = false;
+            parkPlacesPanel1.Visible = false;
 
 
 
@@ -36,12 +36,12 @@ namespace Park24
         private void button1_Click_1(object sender, EventArgs e)
         {
             panel1.Visible = true;
-            panel2.Visible = false;
+            parkPlacesPanel1.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            panel2.Visible = true;
+            parkPlacesPanel1.Visible = true;
             panel1.Visible = false;
         }
 
@@ -58,7 +58,7 @@ namespace Park24
             try
             {
                //temizle
-                dataGridView1.Rows.Clear();
+                parkListGView1.Rows.Clear();
 
                 //verileri çek
                 connection.Open();
@@ -110,7 +110,7 @@ namespace Park24
                     }
 
 
-                    dataGridView1.Rows.Add(
+                    parkListGView1.Rows.Add(
                         okuyucu["park_No"].ToString(),
                         okuyucu["musteri_Ad"].ToString() +"  "+ okuyucu["musteri_Soyad"].ToString(),
                         okuyucu["musteri_Tel"].ToString(),

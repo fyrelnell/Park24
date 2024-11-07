@@ -12,14 +12,14 @@ using System.Globalization;
 
 namespace Park24
 {
-    public partial class recentsForm : Form
+    public partial class logListForm : Form
     {
 
 
 
         OleDbConnection connection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source = otoparkDB.accdb");
 
-        public recentsForm()
+        public logListForm()
         {
             InitializeComponent();
 
@@ -58,7 +58,7 @@ namespace Park24
                 OleDbDataReader reader = eskiKayitlarKomut.ExecuteReader();
 
                 // DataGridView temizle
-                dataGridView1.Rows.Clear();
+                logListGView.Rows.Clear();
 
                 // Her bir kayıt için DataGridView'e ekleme
                 while (reader.Read())
@@ -77,7 +77,7 @@ namespace Park24
                     string cikisGorevli = reader["cikis_Gorevli"].ToString();
 
                     // DataGridView'e ekleme
-                    dataGridView1.Rows.Add(parkNo, adSoyad, telefonNo, aracPlaka, aracMarka, aracModel, girisTarihi, cikisTarihi, ucret, kayitGorevli, cikisGorevli);
+                    logListGView.Rows.Add(parkNo, adSoyad, telefonNo, aracPlaka, aracMarka, aracModel, girisTarihi, cikisTarihi, ucret, kayitGorevli, cikisGorevli);
                 }
 
             }
